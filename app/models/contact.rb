@@ -1,3 +1,3 @@
 require_relative '../../db/config'
 
-# implement your Student model here
+# implement your Contact model here

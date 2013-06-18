@@ -1,4 +1,4 @@
-ActiveRecord Student Schema
+ActiveRecord Address Schema
 ===========================
 
 To get started:
