@@ -4,6 +4,12 @@ require_relative '../config'
 
 class CreateContacts < ActiveRecord::Migration
   def change
-    # HINT: checkout ActiveRecord::Migration.create_table
+    create_table :contacts do |t|
+      t.string :full_name
+      t.string :email
+      t.string :password
+
+      t.timestamps
+    end
   end
 end

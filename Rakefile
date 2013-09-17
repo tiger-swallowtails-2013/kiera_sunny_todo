@@ -1,6 +1,8 @@
 require 'rake'
+require 'faker'
 # require 'rspec/core/rake_task'
 require_relative 'db/config'
+require_relative 'app/models/contact.rb'
 
 
 desc "create the database"
@@ -28,3 +30,20 @@ task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
 
+desc 'Creates 5 random entries'
+task "db:seed" do 
+  5.times do 
+    name = Faker::Name.name
+    Contact.create(full_name: name, email: Faker::Internet.email(name), password: Faker::Internet.password )
+  end
+  puts "5 people have been added"
+end
+
+desc "Does everything"
+task "db:doall" do
+    Rake::Task['db:drop'].invoke
+    Rake::Task['db:create'].invoke
+    Rake::Task['db:migrate'].invoke
+    Rake::Task['db:seed'].invoke
+    puts "doneskies!"
+end
