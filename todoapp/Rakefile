@@ -1,10 +1,11 @@
 require 'sinatra/activerecord/rake'
 require_relative './app/config'
+require_relative './app/models/task'
 
 
 desc "drop the database"
 task "db:drop" do
-  rm_f ENV['DATABASE_URL']
+  rm_f './todo.sqlite3'
 end
 
 desc "create an irb console with environment loaded"
@@ -14,4 +15,9 @@ end
 
 desc "seed the database"
 task "db:seed" do
+  Task.create(:priority => 1, :task => "Walk the dog")
+  Task.create(:priority => 2, :task => "Go to the store")
+  Task.create(:priority => 3, :task => "Water the flowers")
+  Task.create(:priority => 4, :task => "Break up with Boyfriend")
+  Task.create(:priority => 5, :task => "Call the plumber")
 end
