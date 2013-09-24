@@ -1,5 +1,34 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
+  <h1>Welcome to the Global List!</h1>
   <p>Hello, world!</p>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+      <th> &nbsp;&nbsp;&nbsp;&nbsp;</th>  
+        <th>Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each_with_index do |task, id| %>
+
+        <tr id= "<%=id%>" class="selectableTasks" onclick="loadButtons(id)">
+          <td><% task.priority %></td>
+          <td><%= task.task %></td>
+        </tr> 
+      <% end %>
+
+    </tbody>
+</table>
+</div>
+
+<button id ='up_button' class="arrows_hidden" onclick="moveUp()"> Up </button>
+<button id ='down_button' class="arrows_hidden" onclick="moveDown()"> Down </button>
+
+<!-- <div style="float:right">
+  <input type= "button" onclick="changePriority"> UP </input> <br/>
+  <button> DOWN </button>
+</div> -->
 
 </div>

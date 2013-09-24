@@ -3,7 +3,25 @@
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+
 }
 th {
   text-align: left;
+}
+
+tr:hover{
+  background-color: #FFFF99
+}
+
+tr.selected{
+  background-color: #FF00FF
+}
+
+.arrows_hidden{
+  display:none;
+}
+
+.arrows{
+  display:block;
 }
